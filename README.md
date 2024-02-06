@@ -53,25 +53,25 @@ source ingest.sh
 		- data_limit: number of the images to be ingested
 	- Model config 
 		- model_id: id of the model to be loaded ("now only clip")
-		- vector_size: size of the vector to be used and ingested to Qdrant
+		- vector_size: the size of the vector to be used and ingested to Qdrant
 
 When triggering "python ingest"
 - connect to Qdrant by the Qdrant client and create a collection
-- the model and processor is loaded
+- the model and processor are loaded
 - images are read in batches and ingested into the Qdrant batch at a time
 - images processed vectors are also saved in pkl file for later use if needed
 
 When triggering "python app"
 - connect to Qdrant by the Qdrant client as a global instance
 - load model and processor as a global instance
-- when receiving a post request it is passed to the api logic which 
+- when receiving a post request it is passed to the API logic which 
 	- convert text to vector using clip instance
 	- use qdrant instance to search for similar vectors (images) then return these
 
 ## Challenges and potential improvements
 - Optimizing ingestion  --> ( resize images, parallel processing )
-- Make system model free ( for now it is only clip but it can be extend to allow other models )
-- Als can be improved 
+- Make the system model free ( for now it is only clip but it can be extended to allow other models )
+- Also can be improved 
 	- API logic to do some validations on the retrieved images
-	- Allow more customizations for the api 
+	- Allow more customizations for the API 
 	- Use more advanced models like llama2 
