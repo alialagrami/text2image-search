@@ -32,9 +32,9 @@ response = requests.post(url, json = myobj)
 
 
 ###  Add Your Own Data
-i. Place your images into the data/{your_directory_name} directory.
-ii. change config file to point to your directory name
-iii. ingest them into qdrant with the following script
+- i. Place your images into the data/{your_directory_name} directory.
+- ii. change config file to point to your directory name
+- iii. ingest them into qdrant with the following script
 ```bash
 source ingest.sh
 ```
